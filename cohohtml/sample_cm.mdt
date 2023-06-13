@@ -1,0 +1,376 @@
+/*
+This text file is readable by Magma, and it
+can be downloaded using your browser. This Magma file 
+is self-contained.
+
+There are many comments describing the data. All these
+comments are in the form of string variables beginning with the
+word "comment_". Note that if you read two of these data files
+with Magma, the information from the first file will be overwritten 
+by the second one, since the names of the variables are the same.
+*/
+
+
+/**************************************************************/
+/**************************************************************/
+// This is a data file readable by magma.
+
+group_order := 16;
+hall_number := 11;
+G := FreeGroup(Ilog2(group_order));
+field<a> := GF(4);
+one_var_ring := PolynomialRing(Integers());
+hilbert_ring<T> := FieldOfFractions(one_var_ring);
+master_polynomial_ring<z,y,x,w,v,u,t,s,r,q,p,n,
+m,k,j,i,h,g,f,e,d,c,b> := PolynomialRing(field, 23);
+string_variables := ["z","y","x",
+"w","v","u","t","s","r","q","p","n",
+"m","k","j","i","h","g","f","e","d","c","b"];
+AssignNames(~master_polynomial_ring, string_variables);
+
+isomorphism_type := "";
+magma_number := 6;
+pcgroup_relations := [
+    G.1^2 = G.2, 
+    G.2^2 = G.4, 
+    G.3^G.1 = G.3 * G.4
+ ];
+G := quo< G | pcgroup_relations >;
+
+centre_type :=  [ 4 ]
+;
+orders_lower_central_series :=  [ 16, 2, 1 ]
+;
+orders_upper_central_series :=  [ 1, 4, 16 ]
+;
+order_of_frattini_subgroup := 4;
+exponent := 8;
+orders_of_max_elem_abelian_subs := [ 4 ];
+orders_of_centralizers_of_max_elem_abelian_subs := [ 8 ];
+orders_of_normalizers_of_max_elem_abelian_subs := [ group_order ];
+variables := [ 
+    z,
+    y,
+    x,
+    w
+ ];
+degrees := [  1, 1, 3, 4  ];
+relations := [ 
+    z^2,
+    z*y^2,
+    z*x,
+    x^2
+ ];
+hilbert_series := 
+1/(T^4 - 2*T^3 + 2*T^2 - 2*T + 1);
+krull_dimension := 2;
+depth := 1;
+longest_regular_sequence := [ 
+    w
+ ];
+homogeneous_set_of_parameters := [ 
+    w,
+    y^2
+ ];
+param_degrees :=  [ 4, 2 ];
+
+
+
+comment_HYPERCOHOMOLOGY_SPECTRAL_SEQUENCE_DATA :=
+"[ list, boolean ]
+Each element of the list is of the form
+<vector(as string), several lists of polynomials>
+and describes a row of the spectral sequence. The boolean is true
+if and only if Poincare duality is satisfied.";
+
+hypercohomology_spectral_sequence := [* 
+< "(1)", [],
+[
+    z
+],
+[
+    z*y
+]>,
+< "(0)", [1],
+[
+    y,
+    z
+],
+[
+    z*y
+],
+[
+    x
+],
+[
+    y*x
+]>, true *];
+
+
+
+comment_MAXIMAL_SUBGROUPS_DATA :=
+"This is a list, in which each entry represents
+a maximal subgroup. Each item on the list has:
+1: maximal subgroup number,
+2: generators of the maximal subgroup (in the larger group),
+3: Hall-Senior number of its isomorphism class,
+4: list of images (in the cohomology ring) under restriction,
+5: list of generators of the ideal of the kernel of restriction,
+6: list of generators of its cohomology ring,
+7: list of images under the transfer map.";
+
+maximal_subgroups_data := [
+< 1,  [ G.4, G.1 * G.3 * G.4, G.2 ]
+,
+3,
+[ 
+    z,
+    z,
+    z*y,
+    y^2
+ ],
+[ 
+    z + y
+ ],
+[ 
+    y
+ ],
+[ 
+    z*y
+ ] >,
+< 2,  [ G.3, G.4, G.2 ]
+,
+2,
+[ 
+    0,
+    y,
+    z*y^2,
+    y^2*x + x^2
+ ],
+[ 
+    z
+ ],
+[ 
+    z,
+    x,
+    z*x
+ ],
+[ 
+    z,
+    z*y + y^2,
+    x
+ ] >,
+< 3,  [ G.1, G.4, G.2 ]
+,
+3,
+[ 
+    z,
+    0,
+    z*y,
+    y^2
+ ],
+[ 
+    y
+ ],
+[ 
+    y
+ ],
+[ 
+    z*y
+ ] > ];
+
+
+
+comment_MAXIMAL_ELEMENTARY_ABELIAN_SUBGROUPS_DATA :=
+"Two lists are computed.\n
+The first list contains the maximal elementary abelian subgroups
+which are also maximal subgroups; in this case, their index numbers are
+identical (that is, the n-th maximal elementary abelian is the n-th maximal).\n
+The second list contains items describing
+the maximal elementary abelian subgroups:
+1: maximal elementary abelian subgroup number,
+2: generators of the subgroup (in the larger group),
+3: order,
+4: list of images (in the cohomology ring) under restriction,
+5: list of generators of the ideal of the kernel of restriction,
+6: list of generators of its cohomology ring,
+7: list of images under the transfer map.
+
+We also compute information about the nilradical. This is the list:
+1: string (description of the nilradical),
+2: generators of the nilradical,
+3: nilpotency degree,
+4: boolean (is the nilradical zero?).";
+
+maximal_elementary_abelian_and_maximal := [  ];
+maximal_elementary_abelian_subgroups_data := [
+< 1,  [ G.4, G.3 * G.4 ]
+,
+4,
+[ 
+    0,
+    y,
+    0,
+    z^4 + z^2*y^2
+ ],
+[ 
+    z,
+    x
+ ],
+[ 
+    z,
+    z^2,
+    z^3
+ ],
+[ 
+    z,
+    0,
+    x
+ ] >
+ ];
+
+nilradical := [*
+"The kernel of the restriction to E is also the nilradical of P", [ ],
+2, false *];
+
+
+
+comment_ESSENTIAL_COHOMOLOGY_DATA := 
+"This is a tuple < > containing the following entries:
+1: generators of the image of transfers from all maximal subgrops,
+2: boolean (is the essential cohomology zero?),
+3: generators of the essential cohomology,
+4: nilpotency degree,
+5: dimension of the annihilator,
+6: generators of the subring,
+7: generators of the free module";
+
+essential_cohomology_data := < [ 
+    z,
+    y^2,
+    x
+ ],
+false, [ 
+    z*y
+ ],
+2, 1, [ 
+    w
+ ],
+[ 
+    z*y
+ ] >;
+
+
+
+comment_DEPTH_ESSENTIAL_COHOMOLOGY_DATA := 
+"We compute two lists.
+The first list contains generators of the centralizers.\n
+The second list consists of the following items:
+1: generators of the depth essential cohomology,
+2: dimension of the annihilator,
+3: generators of the subring,
+4: generators of a free module,
+5: statement about DI,
+6: generators of DI. ";
+
+list_of_depth_centralizers := [
+[  G.2 * G.3 * G.4, G.3  ] ];
+depth_essential_cohomology_data := [*
+[ 
+    z
+ ],
+1, [ 
+    w
+ ],
+[ 
+    z,
+    z*y
+ ],
+"The ideal DI is the image of the transfer from the unique centralizer",
+[ ] *];
+
+
+
+comment_ASSOCIATED_PRIME_IDEALS :=
+"One list is computed. Each entry contains the following:
+1: associated prime number,
+2: maximal elementary abelian subgroup number (a number; 0 if N/A),
+3: generators (empty if item 3 is non-zero),
+4: [ element ] (whose annihilator is the associated prime); this is   given as a list with one element (or empty if unavailable)."; 
+
+associated_primes_data := [*
+< 1, 1, [ ], [ 
+    x
+ ] >,
+< 2, 0, [  G.4  ],
+[ 
+    z*y
+ ] > *];
+
+
+
+comment_INFLATIONS_FROM_MAXIMAL_QUOTIENT_GROUPS_DATA :=
+"This is one list. Each entry has the following information:
+1: maximal quotient group number,
+2: generator of the kernel of the quotient map,
+3: Hall-Senior number of its isomorphism class,
+4: list of images (in the cohomology ring) under inflation,
+5: generators of the kernel of the inflation.";
+
+inflations_from_maximal_quotient_groups_data := [
+< 1,  G.4 , 2, [ 
+    z,
+    y,
+    z*y
+ ],
+[ 
+    z*y + x,
+    y*x
+ ] > ];
+
+
+
+comment_ACTION_OF_AUTOMORPHISMS_DATA := 
+"We compute the order of the group of automorphisms,
+the number of generators of the automorphism group,
+and a list containing information about the generators
+of the group of automorphisms.
+Each entry of the list has the following information:
+1: automorphism number,
+2: order in the outer automorphism group,
+3: list of images of the group generators under this automorphism,
+4: list of images of the generators on cohomology under the
+     map induced by the automorphism.";
+
+order_of_outer_automorphism_group := 4;
+number_of_generators_of_outer_automorphism_group := 2 
+;
+automorphisms_data := [
+< 1, 2,
+[  G.1 * G.2, G.2 * G.4, G.3, G.4  ],
+[ 
+    z,
+    y,
+    x,
+    w
+ ] >,
+< 2, 2,
+[  G.1 * G.3, G.2 * G.4, G.3, G.4  ],
+[ 
+    z,
+    z + y,
+    x,
+    w
+ ] > ];
+
+
+super_groups := 
+[ 13, 13, 13, 13, 17, 17, 17, 31, 32, 32, 44, 45, 47, 47, 48, 48 ]
+;
+
+
+
+super_quots := 
+[ 13, 13, 19, 19, 20, 21 ]
+;
+
