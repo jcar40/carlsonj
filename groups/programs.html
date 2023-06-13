@@ -1,0 +1,39 @@
+ <BODY><HTML>
+ 
+ <TITLE>Programs</TITLE> 
+ <body text = "#AA0040" bgcolor="#BBEEAA">
+  <H1>Programs for cohomology</H1>
+
+<p>The programs included in the file are all written in MAGMA code, and will run under that system. They have some documentation, and I hope that someone who is dedicated can figure out how to use them. At some time in the future I want to try to bring the level of the documentation up to adequate. Meanwhile I can only apologize for not having taken the time to do it. The fortunate thing is that MAGMA code is reasonably straightforward and can almost be read by a human being. Of course some of the longer programs are more difficult, but for those the documentation is slightly less meager. </P>
+
+<p>My other confession is that some of the routines were written when I was just learning this stuff and are a bit silly. Please try to ignore these. Although I am happy of many of the more complicated programs, I recognize that there are probably some improvements that could be made also in them. Here is a list of what is in the file</p>
+
+<h4>Ring8.m, Ring16.m, etc.</h4>
+<p> These programs call the other routines that compute the cohomology rings of the groups of order 8, 16, etc. Anyone one who wants to use these programs is going to have to be careful about setting up the file system so that the other routines get loaded from the correct directories. The output from these programs is what is actually posted for the cohomology rings. </p>
+
+<h4> ProjectiveResolutionsNP</h4>
+<p> These programs actually run the projective resolutions. Note that they will get projective resolutions for any module. </P>
+
+<h4> AllChainMaps</h4>
+<p>Routines here are build chain maps on projective resolutions from the cohomology elements. They are meant to be run only on the projective resolution of the trivial module. </P>
+
+<h4> Relations</h4>
+<p>These routines generate the ideal of relations for the cohomology ring of the trivial module using the chain maps for the cohomology elements.</p>
+
+<h4> Restrictions</h4>
+<p>The programs generate the restriction maps from the cohomology of a group to the cohomology of a subgroup. </P>
+
+<h4> RingOps</h4>
+<p>This file contains a collection of routines for commutative algebra operations which are not otherwise available in MAGMA. </P>
+
+<h4> MaxEle</h4>
+<p>The principal routine in this file generates a list of representatives of the conjugacy classes of maximal elementary abelian p-subgroups of a group.</p>
+
+<h4> GroupsFromList</h4>
+<p>The programs here allow a user to extract a 2-group or a 3-group form a MAGMA library and return it as a permutaion group. </p>
+
+<h4> General </h4>
+<p>This file contains some general operations and routines of my personal preferences. </P>
+
+<h2> To obtain a copy of the file with the programs <a href = "ftp://byrd.math.uga.edu/pub/papers/carlson/programs.tar.z">click here.
+</a></h2> Please note that the file is tarred and gzipped.

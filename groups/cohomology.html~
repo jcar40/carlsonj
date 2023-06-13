@@ -1,0 +1,453 @@
+<BODY><HTML>
+<TITLE> COHOMOLOGY OF 2-GROUPS   </TITLE>
+<body text = "#6020AA" bgcolor="#80EE60">
+<H1> THE MOD-2 COHOMOLOGY OF 2-GROUPS </H1>
+<P> On this web page we present the data from the computer calculation 
+of the mod-2 cohomology of groups of order 8, 16 32 and 64. All of the
+calculations were run using the MAGMA computer algebra system. The groups 
+are indexed by their Hall-Senior Numbers. </P>
+
+<h2> State of Calculation </h2>
+<p> As of February 17, 1997, we have computed completely the cohomology 
+rings of approximately 200 of the 267 groups of order 64. I hope that 
+the first run, avoiding problem cases, through the groups can be completed
+in the next few weeks. Then I will start to work on the difficult ones.</p>
+
+<h2> The Calculations</h2>
+
+<img src="http://www.math.uga.edu/~jfc/Images/blueball.gif">
+<A HREF="http://www.math.uga.edu/~jfc/groups/Groups8/Groups8.html "> 
+Groups of Order 8 </A> <br>
+<img src="http://www.math.uga.edu/~jfc/Images/pinkball.gif">
+<A HREF="http://www.math.uga.edu/~jfc/groups/Groups16/Groups16.html "> 
+Groups of Order 16 </A> <br>
+<img src="http://www.math.uga.edu/~jfc/Images/redball.gif">
+<A HREF="http://www.math.uga.edu/~jfc/groups/Groups32/Groups32.html "> 
+Groups of Order 32 </A> <br>
+<img src="http://www.math.uga.edu/~jfc/Images/yellowball.gif">
+<A HREF="http://www.math.uga.edu/~jfc/groups/Groups64/Groups64.html "> 
+Group of Order 64 Number 4 </A> <br>
+
+<BODY> <HTML>
+<TITLE> Notes and definitions </TITLE>
+<H2>Notes and Definitions</H2>
+<p>The following document presents a brief explaination of some of the 
+terms and concepts that appear in the output of the calculations of the 
+mod-p cohomology rings. The reader who is interested in more detail is 
+invited to consult the papers [CGS] and [Test]. Other references to 
+specific items are given below. The links in the references are to Dave 
+Benson's electronic archives from which most of the papers can be 
+ftp'd. </P>
+
+<H3>Please send me your comments </H3>
+<p>This web page is very experimental and is not likely to be refereed 
+or reviewed by anyone except the users. Please feel free to <a href= 
+"mailto:jfc@sloth.math.uga.edu">send me </a>any suggestions for 
+improvement as well as any misprints or mistakes that you might notice.</p>
+
+<H4>Equipment</H4>
+<p>Most of the calculation that are posted were performed on an SUN 
+ULTRA 2200, (the sloth). The machine has 1024 M. of RAM and approximately 
+12 G. of hard drive. More notes on the details of the calculations are 
+given below. I want to thank the National Science Foundation and 
+University of Georgia Research Foundation for providing me with both 
+the equipment and the time to work on this project.</p> 
+
+<H4>Programs</H4>
+<p>All of the programs are written in MAGMA code and run on the MAGMA 
+platform. Thanks are due to John Cannon and Allan Steel of the MAGMA 
+project for numerous instances of help with the tools to make the 
+programs work and for their enthusiastic support. It is my hope that 
+the programs will be included in MAGMA in some later release. In the 
+meanwhile anyone who is interested may ftp a tar file "cohomology.tar" 
+containing the programs. I appologise for the lack of documentation. 
+I hope to correct that situation in the not too distant future. If 
+you would like a very brief description of what is in the file 
+"cohomology.tar.z" then <a href= 
+"http://www.math.uga.edu/~jfc/groups/programs.html"> click here</a></p>
+
+<hr><hr>
+<H2><dd><dd> Description of Project </H2>
+<p>The goal is to computer as many examples as possible of mod-p 
+cohomology rings of finite p-groups. In the early stages we have looked 
+at the groups of order 64, as the groups of order 32 have been 
+done [Ru]. Ultimately we would like to calculate the cohomology of 
+larger 2-groups, of other p-groups for odd primes p and to use the 
+information to calculate the cohomology rings of finite groups other 
+than p-groups. Some of the last has already been done (e.g. see [CMM]). 
+If there is anyone else who has calculation that they would like to 
+make public then I would be happy to post the files on my server or to 
+establish links to other web pages as appropriate. </p>
+
+<p>The calculations on the sloth run in essentially two stages. The 
+first is all groups, modules and linear algebra, The second stage is all Groebner basis and commutative algebra calculations. First of all the 
+groups are called out of the library on MAGMA. For each group the 
+MAGMA library number is given though the group is posted according 
+to its HALL-SENIOR number (see [HaSe]). Some routine information 
+about each group is computed and printed. After that the actual 
+calculation of the cohomology begins. For notation let <i>G</i> denote 
+the group and let <i>k</i> be the print field F<sub>2</sub>. 
+
+<h3>STAGE 1: Modules and Linear Algebra</h3>
+<h4>Projective Resolutions</h4>
+<p>  The first step is the computation of a standard free module 
+for the group algebra. In particular, matrices for the action of 
+a minimal set of generators for <i>G</i> and also for a power 
+commutator set of generators for <i>G</i> on the free module <i>kG</i> are 
+fixed. In this way the programs can rely almost entirely on linear 
+algebra. That is, the more time consuming module theoretic machinery 
+is used only at the beginning. Next a minimal projective resolution 
+of the trivial module is computed and stored. Because the rate of 
+growth (complexity) of the projective resolution is related to the 
+<i>2</i>-rank of <i>G</i> the number of steps that were computed 
+for each resolution varied according to the following formula.</p>
+
+<Ul>For groups of <i>2</i>-rank 1, 2 or 3, sixteen steps were computed.</ul>
+
+<Ul>For groups of <i>2</i>-rank 4, thirteen steps were computed.</ul>
+
+<Ul>For groups of <i>2</i>-rank 5, ten steps were computed.</ul>
+
+<Ul>For abelian groups only three steps were computed.</ul>
+
+<p>Of course, the point about abelian groups is that the cohomolgy 
+rings are generated in degrees 1 and 2 and the relations are well known.
+One justification for this scheme is that for groups of large 
+<i>2</i>-rank, the elements in a system of parameters will lie in low 
+degrees. That is, it can be predicted that if <i>G</i> has order 64 and 
+<i>2</i>-rank 4 then the elements in a system of parameters will lie 
+in degree 4 or less. If the <i>2</i>-rank is 5 the parameters will 
+lie in degree 2 or less. This can be proved using norm maps.</p>
+
+<h4> ChainMaps </h4>
+<p>Once the projective resolution is obtained the computer begins 
+construction chain maps for the cohomology generators. This is a 
+careful process and no excess generators are computed. That is the 
+cup product of any two cohomolgy elements is obtained as the 
+composition of the corresponding chain maps. The program computes 
+some of the products as it goes and hence the only generators for 
+which the chain maps are calculated are those which are not polynomials 
+in the other generators. The printed output of this stage of the 
+program is a list of the generators and a list of their degrees.</p>
+
+<h4>Relations</h4>
+<p>Following the chain map calculation we get the relations among the 
+generators. That is, for a degree <i>n</i>, within the range of the 
+computation, all possible monomials of degree <i>n</i> in the 
+generators is are computed. Each such monomial is a <i>k</i>-homomorphism 
+from the <i>n<sup>th</sup></i> term, modulo its radical, in the projective 
+resolution into <i>k</i>. Thus the set of relations among the monomials 
+is the null space of the matrix whose rows are the matrices of these homomorphisms. Hence we have determined all possible relations of 
+degree <i>n</i> in the generators. Of course this information is too 
+massive to be helpful. What we really want is a minimal set of generators 
+for the ideal of relations. To get the ideal we need to call upon the 
+Groebner basis machinery. Hence we are led to Stage 2. The program 
+actually produces a minimal set of generators for the ideal of 
+relations. The notation is taken directly from the output form MAGMA. 
+Hence "*" mean multiplication and "^n" means n<sup>th</sup> power.</p>
+
+<h3>STAGE 2: Commutative Algebra</h3>
+<p> Once a minimal set of relations has been presented then the computation 
+of the cohomology ring is (probably!) complete. The problem now is to 
+prove it is complete. In [Test] we provide a scheme for the proof. All 
+of this is based on conjectures about the nature of mod-p cohomology 
+rings, but the fortunate thing is that the conjectures can be checked 
+from the output of the computation. From here until the end, all of the 
+calculations are entirely within the domain of the commutative algebra 
+packages on MAGMA. 
+
+<H4>Systems of Parameters and Regular Sequeces. 
+
+<P> The Hilbert series for the cohomology ring and the factorizations 
+of its numerator and denominator are given. This computation required 
+only slight modification of existing algorithms.</p>
+
+<P> A system of paramteres for <i>H<sup>*</sup>(G, k)</i> is a 
+collection to elements, <i>x<sub>1</sub>, ..., x<sub>r</sub></i> 
+with the property they generate a polynomial subring of the cohomology 
+ring for <i>H<sup>*</sup>(G, k)</i> and moreover the cohomology ring 
+is a finitely generate module over that polynomial subring. Hence it 
+is necessary that <i>r</i> be equal to the 2-rank of <i>G</i> which is 
+the Krull dimension of the cohomolgy ring of 
+<i>H<sup>*</sup>(G, k)</i>. The program then find the depth of the 
+cohomolgy ring by computing the longest regular sequence. There are 
+some problems with the implementation of this routine which are noted 
+below in the secion on problems. However the accuracy of the 
+calculation is verified in next calculation. </P>
+
+<h4> The hypercohomology Spectral Sequence </h4>
+<p> the hypercohomology spectral sequence is described in detail 
+in the paper [BC] (see also [Test]). It is a spectral sequence whose 
+E<sub>2</sub> page is the Koszul complex of 
+<i>H<sup>*</sup>(G, k)</i> with respect to the system of parameters 
+chosen above. What is actually printed is the homology of the Koszul 
+complex. In the event that the cohomology ring is Cohen-Macaulay the 
+spectral sequence plays no part in the test for the completion of the calculation and is omitted. In this case the homology would all exist 
+on the bottom row (Row 0). In the event that the depth of the 
+cohomolgy ring is one less than the Krull dimension then the homology 
+of the Koszul complex lies on two rows. The bottom row (Row 0) is 
+presented by giving bases of the vector spaces of the homogeneous 
+parts of the ring <i>H<sup>*</sup>(G, k)/x<sub>1</sub>, ..., x<sub>r 
+</I>. The bases for this row and the others are presented by degrees. 
+That is the output </p>
+<ul><i>ROW 0:[z,x,w][z*x,u] ... </i></ul>
+<P>would indicate that the space in degree one has basis consisting 
+of the elements <i>z, x,</i> and <i>w</i>, the space in degree two 
+has basis consisting of <i>xw</i> and <i>u</i>, etc. The symbol [] 
+is to be interpreted as indicating that the space is the zero space.</P>
+
+<h4> Restrictions to Elementary Abelian Subgroups </h4>
+<p>The celebrated theorem of Quillen [Q] tells us that the minimal 
+primes of the cohomology ring <i>H<sup>*</sup>(G, k)</i> are the 
+radicals of the kernels of restrictions to the conjugacy classes of
+maximal elementary abelian p-subgroups of <i>G</i>. Because we are 
+only dealing with the case <i>p = 2</i> the cohomology rings of the 
+elementary abelian p-subgroups are in fact integral domains and hence 
+the minimal primes of the cohomolgy rings of <i>G</i> are the kernels of restrictions. The restriction map programs are described briefly in 
+[CMM]. A complete list of representatives of the maximal elementary 
+abelian subgroups was computed as part of the early information on 
+the group. In this section is listed the representative, the 
+images of the generators for the cohomolgy of <i>G</i> as elements 
+in the polynomial ring which is the cohomology of the elementary abelian subgroup, and a list of the generators of the kernel of the 
+restriction map.</p>
+
+<p>The intersection of the minimal primes is the nilradical of the 
+cohomolgy ring. In the event that this intersection is equal to the 
+ideal of relations of the cohomology ring of <i>G</i> then the output 
+is the program is the statement the the nilradical of the cohomolgy 
+ring is zero. Otherwise the program prints a list of generators for 
+the nilradical (intersection of the minimal primes) that are not in 
+the ideal of relations for the cohomolgy ring.</p>
+
+<h4>Restriction to Maximal Subgroups.</H4>
+<p>A standard routine in MAGMA computes the maximal subgroups of 
+the group <i>G</i>. Then these subgroups are matched with the 
+isomorphic subgroups of order 32. Note that if the subgroup is 
+abelian then the cohomolgy of the subgroup is known from the 
+structure of the group. The cohomology ring of the subgroup is 
+then computed out to the maximum of the degrees of the generators 
+of <i>H<sup>*</sup>(G, k)</i>. This is for the purposes of computing 
+the images of the generators of <i>H<sup>*</sup>(G, k)</i> under
+ the restriction map and also for computing the kernel of the 
+restriction. If the subgroup is not abelian then the cohomology 
+ring of the subgroup is pulled from the record of the cohomology 
+rings of the groups of order 32. Using the constructed isomorphism 
+of the subgroup with the group of the record the restriction map 
+is created and the images of the generators of <i>H<sup>*</sup>(G, k)
+</i> in the cohomology ring of the subgroup are determined. Also 
+the kernel of the restriction map is computed. 
+
+<H4>Essential Cohomology</h4>
+<p>The intersections of the kernels of restriction to the maximal 
+subgroups is known as the essential cohomology. This ideal is 
+constructed using the commutative algebra capabilities in MAGMA. 
+The conjecture in [Test] is that the essential cohomology is nonzero 
+only if the depth of the cohomology ring <i>H<sup>*</sup>(G, k)</i> 
+is equal to the p-rank of the center of <i>G</i>. Moreover in the 
+case that the essential cohomolgy is nonzero then it is further 
+conjectured that it is a finitely generated free module over the 
+polynomial subring <i>Q</i> generated by the elements of the 
+longest regular sequence in <i>H<sup>*</sup>(G, k)</i>. The finitely 
+generated part of this last question is easily checked by testing 
+the dimension of the ideal of the essential cohomology using 
+routines which are built into MAGMA. That is, if the dimension of 
+the ideal of the essential cohomology is equal to the p-rank of 
+the center of <i>G</i>, then it is also equal to the length of the 
+longest regular sequence by Duflot's Theorem [Du]. A positive answer
+to the conjecture would also lend evidence for some of the 
+speculation in [Dep]. At test to show that the essential cohomology 
+is a free module over <i>Q</i> seems to be much more difficult and 
+may be beyond reason at this point. The computer program runs a 
+check on this by seeing if the generators for the essential 
+cohomology over Q are also generators for the cohomology ring <i>H<sup>*</sup>(G, k)</i> as a module over <i>Q</i>. This guarantees 
+the free module property because it is known from commutative 
+algebra (in the case that p-rank = depth) that the whole cohomology 
+ring is a free module over <i>Q</i>. However the failure of the 
+check does not mean that the conjecture is false. We say more 
+about this below. </p>
+
+<Hr>
+<h3>Flags</h3>
+In the course of the calculation certain flags have been set which 
+record some of the information about the cohomology rings. Some of 
+these are necessary for the proof that the calculation is compete 
+and a complete set of generators and relations for the cohomology 
+ring have been generated. The flags and their meanings are given 
+below. Some of the flags are meant to draw attention to undesirable 
+aspects of the calculation.<P>
+
+<h4>Paramflag</h4>
+<p>The paramflag is true if the computed system of parameters restricts 
+to every elementary abelian subgroup as a system of parameters, or 
+at least the cohomology ring of the elementary abelian subgroup is 
+a finitely generated module over the subring generated by the 
+restrictions of the elements in the system of parameters. Hence 
+if the paramflag is true then we are guaranteed that the computed 
+system of parameters is really a system of parameters for the 
+cohomology ring for the cohomology ring. This check is an essential 
+ingredient in the test for completion. </p>
+<h4>Qregflag</h4>
+<p>If the qregflag is true then the computed system of parameters 
+is a quasiregular sequence (see [BC] or [TEST]) for the computed 
+cohomology ring. That is if , <i>x<sub>1</sub>, ..., x<sub>r</sub></i> 
+is a system of paremeters for the computer cohomology ring <i>R</i> 
+then for each <i>i</i> we have that multiplication by <i>x<sub>i</sub></i> 
+on <i>R/(<i>x<sub>1</sub>, ..., x<sub>i-1</sub></i>) at least 
+in degrees larger than , <i>deg(x<sub>1</sub>)+ ...+deg(x<sub>r</sub>)</i>. 
+This check is an essential ingredient in the test for completion. </p>
+<H4>Cmflag</h4>
+<p> The cmflag is true if the cohomology ring is Cohen-Macaulay. 
+This is not really a part of the test for completion.</p>
+<h4>Essflag</h4>
+<p>The essflag is true if the essential cohomology is zero. In the 
+case that the essential cohomology is not zero then the essflag is 
+still true provided the the annihilator of the essential cohomology 
+has dimension equal to the p-rank of the center of the group. 
+This would imply that the essential cohomology is a finitely 
+generated module over the polynomial subring <i>Q</i> of the 
+cohomology ring generated by a regular sequence of maximal length. 
+There is one further check that is run in the case that the
+essential cohomology is nonzero and its annihilator has the 
+right dimension. That is, we check to see if the generators of 
+the essential cohomology as a module over <i>Q</i> are also free 
+generators of the cohomology ring as a module over <i>Q</i>. A 
+failure of this last check does not mean that the essential 
+cohomology is not a free module over <i>Q</i>. But at this point 
+some hand checking is necessary.  This check is an essential 
+ingredient in the test for completion.</P>
+<H4>Centflag</h4>
+<p>The centflag is true is the essential cohomology is zero or if 
+the annihilator of the essential cohomology has dimension larger 
+than the p-rank of the center of the group. If neither of these is 
+true then the depth of the cohomology ring must be equal to the 
+p-rank of the center. So it is important to be certain the the 
+computed longest regular sequence for the cohomology ring is 
+guaranteed to be a regular sequence. The check for this is to 
+make sure that the restriction of these elements to the center 
+of the group is a regular system of parameters. This check is 
+an essential ingredient in the test for completion.</p>
+<H4>Bigflag</h4>
+<p> In order to keep the computations running the program instructed
+ the machine not to perform certain kernel of restriction programs 
+if the number of variables was too large. In such a case the bigflag 
+was set at false. The does not imply that the computation is not 
+complete, but only means that the test for completion has not 
+been run. In the initial posting the computations with false 
+bigflag were left out. We hope that advances in the techniques 
+will eventually take care of all of these problems. </P>
+<h4>Restrictflag</h4>
+<p> The restrictflag is true as long as the ideal of relations for 
+the cohomology ring is contained in all of the kernels of restriction. 
+This flag is a check on the validity of the program itself and has 
+nothing to do with the calculation. </P>
+<h3>Problems</h3>
+<p> Most of the problems related to the calculations are concerned 
+with the commutative algebra operations. In this section I want to 
+outline some of the difficulties that have been encountered and 
+request help and suggestions from anyone who might know how some 
+of these things should be handled. At some time, I hope to post a 
+collection of challenge problems. These would mostly be problems 
+that applications in MAGMA do not seem to be able to handle. Some 
+of the Groebner basis calculations may simply be too large to do
+with the present technology. Others might be possible with 
+application of the right technique. I hope eventually to look 
+at some of the stickier problems with other computer algebra
+programs. It is a matter of finding the time to do it all. </P>
+
+<h4>Choosing Variables</h4>
+<p>The primary problem with the projective resolutions and chain 
+maps is that there is a lot of randomness to the process which 
+sets up the computation. One of the results is that the generators 
+of the cohomology are sometimes not chosen in such a way as to make 
+the relations as simple and compact as possible. It is clear 
+from some of the examples that a simple change of variables would 
+make the ideal of relations easier to understand. Of course, 
+it would be possible to go through the entire set of groups and 
+change the bases one by one. However such an exercise would be 
+extremely tedious and I would much rather figure out a way to 
+have it done automatically. While this may seem like it is only 
+a problem of esthetics, it may also have some bearing on the 
+Groebner basis problems.</P>
+
+<h4>Choosing Systems of Parameters</h4>
+<p>The current algorithm (of my own writing) for choosing a system 
+of parameters is simple a search in which the machine chooses 
+polynomials, starting with the generators and proceeding up by 
+degrees, and then testing to see if the Krull dimension of the 
+ring drops when the polynomial is factored out. It continues 
+until the Krull dimension becomes zero. For the purposes of the 
+cohomology calculation this is reasonably satisfactory when it 
+works and when it can find a system of parameters quickly. The 
+problems with the technique are two-fold. Sometimes the search 
+is extremely slow, paritcularly when the parameters cannot be 
+found in low degrees and when there many generators for the 
+cohomology. This could possibly be curred by extending the field 
+and/or using the theory to predict where the degrees in which 
+the parameters will be located. However the dimension test will 
+run more slowly over a larger field. The second problem is that 
+occasionally the output of the calculation is a system of
+parameters which does not contain a regular sequence of maximal 
+length. When this happens the calculation of the hypercohomology 
+spectral sequence crashes. Again we could try extending the field 
+with the obvious ill effect. </P>
+
+<h4>Kernels of Restrictions</h4>
+<p> The cohomology rings of the nonabelian groups of orders 8,16, 
+and 32 are stored in a workspace which is loaded into MAGMA before 
+the computations of the cohomology rings of the groups of order 
+64 begins. So in particular, it is an easy matter to create a chain 
+map which gives the restriction homomorphism for <i>G</i> to any 
+of its subgroups. Obtaining the images of the generators of the 
+cohomology for for <i>G</i> is straightforward and runs in 
+reasonable time. The difficulties start when we try to calculate 
+the kernel of the restriction. This is, of course, an elimination 
+ideal calculation, and such problems are known to be difficult. 
+It has been noted in some examples that improvements in running 
+time can be achieved by changing the ordering on the variables. 
+However, most such improvements are made only on an <i>ad hoc</i> 
+basis and I know of no general formula for dealing with the 
+situation. This problem has is the most basic stumbling block to 
+getting the cohomology rings of all of the groups of order 64.</P>
+
+<h2>References</h2>
+Some of the papers in the bibliography can be obtained 
+electronically from Dave Bensons electronic archives. Links to 
+the archive are provided in each case. 
+
+<P>[BC] D. J. Benson and J. F. Carlson, <a href = 
+"http://www.math.uga.edu/~djb/archive/benson-carlson.html"> Projective 
+resolutions and Poincar&eacute duality complexes</a>, Trans. 
+Amer. Math. Soc. 342(1994), 447-488. </P>
+
+<P>[Dep] J. F. Carlson, 
+<a href = "http://www.math.uga.edu/~djb/archive/carlson.html"> Depth 
+and transfer maps in the cohomology of groups</a>, Math. Z., 218 (1995),
+461-468.</P>
+
+<p>[Test] J. F. Carlson, 
+<a href = "http://www.math.uga.edu/~djb/archive/carlson.html"> 
+Calculations of cohomology: Tests for completion</a>, (to appear)</P>
+
+<P>[Dep] J. F. Carlson, E. Green and G. J. A. Schneider <a href = "http://www.math.uga.edu/~djb/carlson-green-schneider"> 
+Calculating Ext algebras </a>, J. Symb. Comp., (to appear)</P>
+
+<p>[CMM] J, F. Carlson, J. Maginnis and R. J. Milgram,
+<a href = "http://www.math.uga.edu/~djb/carlson-maginnis-milgram"> 
+The cohomology of the sporadic groups J<sub>2</sub> and J<sub>3</sub> </a>,
+(to appear)</p>
+
+<P>[Du] J. Duflot, Depth and equivariant cohomology, Comment. Math.
+Helv., 56(1981), 627-637.</p>
+
+<P>[HaSe] M. Hall and J. K. Senior, Groups of order 2<sup>n</sup>, n 
+less than or equal to 6,  Macmillan (1964), New York</p>
+
+<P>[Q] D. Quillen, The spectrum of an equivariant cohomology ring, I, II,
+Ann. Math., 94(1971), 549-602.</p>
+
+<P>[R] D. Russin, The cohomology of groups of order 32, Math. Comp., 
+53(1989), 359-385. </p>
+
+
+
+</HTML></BODY> 
