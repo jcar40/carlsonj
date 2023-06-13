@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Cohomology computations</title>
+  </head>
+
+
+<BODY><HTML>
+<TITLE> COHOMOLOGY OF 2-GROUPS  -- THIRD RUN </TITLE>
+<body bgcolor="white">
+<H1> <center> THE MOD-2 COHOMOLOGY OF 2-GROUPS  (by Jon Carlson)</center><br>
+<cnter> THIRD RUN </center></H1>
+<P> On this web page we present the data from the third run of the 
+computer calculation of the mod-2 cohomology of groups of 
+order 8, 16, 32 and 64. All of the calculations were made using 
+the MAGMA computer algebra system. The groups 
+are indexed by their Hall-Senior Numbers. </P>
+
+The first run of the 
+cohomology rings was terminated in July of 1997. The cohomology
+rings of all but five of the groups of order 64 were successfully 
+calculated. The failure to compute the last five were all due to 
+problems with the Groebner basis machinery used to make minimal
+sets of relations among the generators of the cohomology. To view the
+results of the first run <a href= 
+"http://www.math.uga.edu/~jfc/groups/cohomology.html"> 
+click here.</a></p> 
+
+The second attempt at the calculations was begun in February of 
+1998. As of early November 1998,
+all but six of the cohomology rings of the 267 groups of 
+order 64 had been calculated. Some partial results had been 
+posted for the cohomology rings of the remaining six groups. 
+As in the first run the problems have been mostly in the 
+Groebner basis computations. For the third run we wrote
+programs that circumvented these problems.
+To view the
+results of the second run 
+<a href= "http://www.math.uga.edu/~jfc/groups2/cohomology2.html"> 
+click here.</a></p> 
+
+The user should be warned at this stage that
+the results of the computation on the third run will, in many cases,
+not look like the results from the first or second runs. 
+There are several probabilistic
+elements in the calculation that cause different 
+choices of variables for the cohomolgy rings in many of the 
+calculations. The computed cohomology rings
+from the first, second, and third runs will certainly be isomorphic, 
+but direct 
+comparisons cannot be made. </P>
+
+<h2> New Features </h2>
+
+In the third run we computed the transfer maps from maximal
+subgroups.
+We also calculated associated prime ideals
+(for cohomology rings that are not Cohen-Macaulay).
+For each group, we included a link to a text file,
+readable by magma, with all the basic information about 
+the cohomology of that group.</P>
+
+<BR><BR>
+
+<h2> The Calculations</h2>
+
+
+
+<A HREF="cohohtml/groups_4_index.htm">
+Index of groups of order 4
+</A><P>
+
+<A HREF="cohohtml/groups_8_index.htm">
+Index of groups of order 8
+</A><P>
+
+<A HREF="cohohtml/groups_16_index.htm">
+Index of groups of order 16
+</A><P>
+
+<A HREF="cohohtml/groups_32_index.htm">
+Index of groups of order 32
+</A><P>
+
+<A HREF="cohohtml/groups_64_index.htm">
+Index of groups of order 64
+</A><P>
+
+<BR><BR><BR>
+
+
+<H2>Notes and Definitions</H2>
+<p>Brief explainations of some of the terms and concepts that appear in 
+the output of the calculations of the mod-p cohomology rings is in the 
+text of the web page for the <a href= 
+"http://www.math.uga.edu/~jfc/groups/cohomology.html"> 
+first run.</a> Here is a description of the data that we 
+present in these HTML pages. Note that the computations
+are usually in a 
+<FONT COLOR= "red">red font
+</FONT>.</p>
+
+A description of the HTML pages of 
+<A HREF="cohohtml/sample_ab.htm">
+abelian groups.</A><P>
+
+
+A description of the HTML pages of 
+<A HREF="cohohtml/sample_cm.htm">
+nonabelian groups.</A><P>
+
+<BR><BR><BR>
+
+
+
+<H3>Please send me your comments </H3>
+<p>This web page is very experimental and is not likely to be refereed 
+or reviewed by anyone except the users. Please feel free to <a href= 
+"mailto:jfc@sloth.math.uga.edu">send me </a>any suggestions for 
+improvement as well as any misprints or mistakes that you might notice.</p>
+
+<H4>Equipment</H4>
+<p>Most of the calculations that are posted were performed on an SUN 
+ULTRA 60 Elite 3D, (toui). More notes on the details of the calculations are 
+given below. I want to thank the National Science Foundation and 
+University of Georgia Research Foundation for providing me with both 
+the equipment and the time to work on this project.</p> 
+
+<H4>Programs</H4>
+<p>All of the programs are written in MAGMA code and run on the MAGMA 
+platform. Thanks are due to John Cannon and Allan Steel of the MAGMA 
+project for numerous instances of help with the tools to make the 
+programs work and for their enthusiastic support. I  am currently working
+on adaptations of the programs that will be suitable for inclusion in MAGMA
+in the near future.   </p>
+ 
+<h2>Some Interesting Features</h2>
+
+<p>One of the aims of the project has been to test some of the 
+conjectures and investigate some of the many questions related to the 
+structure of group cohomology. Accordingly we point out a few of the
+findings of the calculations. These are statements which hold for all
+of the cohomology rings that have been calculated. It is likely that
+there are many more interesting features that have not been observed 
+in the limited time that we have had to examine the data. </p>
+
+<ul>The maximum of the nilpotency degrees of any of the nilradicals 
+of the cohomology rings is 7 (group number 108). Almost all of the
+others are nilpotent of degree 5 or less. The nilradical of the 
+cohomology ring of group nunber 79 is nilpotent of degree 6. <br></ul>
+
+<ul>The nilpotency degree of the essential cohomology is never more
+than 2. <br></ul>
+
+<ul>The <i>depth-essential cohomology</i> in nonzero whenever the 
+cohomology ring is not Cohen-Macaulay.<br></ul>
+
+<ul>Moreover the annihilator of the depth-essential cohomology 
+is an ideal whose variety in the maximal ideal spectrum of the cohomology 
+ring has dimension equal to the depth of the cohomology ring. 
+Equivalently, the quotient ring of the cohomology ring by the 
+annihilator of the depth-essential cohomology has dimension equal
+to the depth of the cohomology ring.<br> </ul>
+
+<ul>In the cases that have been calculated, the depth-essential 
+cohomology is a free module over the polynomial subring of the 
+cohomology ring generated by the elements of a regular sequence of
+maximal length. <br></ul>
+ 
+<h3> I would be interested in knowing what other features of the 
+calculation could be of use or interest for other researchers in the 
+area.
+I am sure that there are many other features worthy of 
+calculation, and I would welcome suggestions of things to consider 
+in the next run.</h3>
+
+<h2>References</h2>
+Some of the papers in the bibliography can be obtained 
+electronically from Dave Benson's electronic archives. 
+
+<P>[Dep] J. F. Carlson, 
+Depth and transfer maps in the cohomology of groups, Math. Z., 218 (1995),
+461-468.</P>
+
+<p>[Test] J. F. Carlson, 
+Calculations of cohomology: Tests for completion, (to appear)</P>
+
+<p>[Prob] J. F. Carlson, 
+Problems in the calculation of group cohomology, (to appear)</P>
+
+<P>[HaSe] M. Hall and J. K. Senior, Groups of order 2<sup>n</sup>, n 
+less than or equal to 6,  Macmillan (1964), New York</p>
+
+<h2>Acknowledgement</h2>
+Thanks are due to NSF for support of the project in both time and 
+equipment.
+
+
+
+
+<!-- Created: Wed Apr 18 14:10:08 EDT 2001 -->
+<!-- hhmts start -->
+Last modified: Thu May 31 16:13:43 EDT 2001
+<!-- hhmts end -->
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<bODY><HTML>
+<TITLE> Schur Algebras</TITLE>
+<body text = "#300000" bgcolor="#FFFFFF">
+<H1> <center> Schur Algebras,  <i>S(n,r)</i> </center><br></H1>
+<P> On this web page we present the computations of the basic 
+algebras of Schur algebras for some symmetric groups. 
+Let <i>G = Sym(r)</i> be the symmetric 
+group on <i>r</i> letters. Given a partition <i>L = [r<sub>1</sub>,
+. . . , r<sub>t</sub>]</i> of <i>r</i>, the Young subgroup 
+corresponding to <i>L</i> is the direct product 
+<i>Sym(r<sub>1</sub>) x  ... x Sym(r<sub>t</sub>)</i>.
+Let <i>k</i> be the field with <i>p</i> elements where <i>p</i> is the
+given characteristic. We compute an algebra which is Morita equivalent
+to the Schur algebra <i>S(n,r)</i>
+by computing the endomorphism algebra of the 
+module <i>M</i> which is the direct sum of the permutation modules
+with point stabilizers being the Young subgroups corresponding to 
+partitions having at most <i>n</i> parts. </P>
+
+<P> It should be emphasized that no claim is being made for priority on 
+this web page. Though some of our calculations appear to be new, it is 
+likely that others of the calculation have
+been made before by other people. Nor are we claiming that this is the 
+best method for computing Schur algebras. It is a method that is 
+available. The information is offered as a service to anyone who might
+be interested. 
+
+<H3> The module <i>M</i>.</H3>
+<P>The module <i>M</i> is the direct sum of permutation module on the 
+cosets of the Young subgroup <i>Y<sub>L</sub></i> where 
+<i>L</i> runs over the partitions of <i>r</i> with at most <i>n</i>
+parts. The coefficients of <i>M</i> lie in 
+the prime field of characteristic <i>p</i>. 
+We compute its composition factors and 
+its indecomposable components. The list of dimensions of the nonisomorphic
+simple modules occurring as composition factors is given. The 
+simple modules are numbered as in that list. In the displays of the 
+Loewy series and socle series for <i>M</i> the numbers refer to the 
+simple modules in that list. </P>
+
+<P> The displays of the Loewy series and socle series both go from top to 
+bottom. That is, in the Loewy series for <i>M</i>, the first line lists
+the simple modules that are in <i>M/(Rad M)</i>, the second line lists
+the simple modules in <i>(Rad M)/Rad<sup>2</sup> M)</i>, etc. For the 
+socle series, the <i>last</i> line is <i>Soc M</i>, while the next
+to last line is <i>(Soc<sup>2</sup> M)/(Soc M)</i>.</P>
+
+<H3> The action algebra <i>A</i>.</H3>
+<P> The algebra <i>A</i> is the image of the group algebra of <i>G</i> in the 
+endomorphism ring of <i>M</i>. Hence it is isomorphic to the quotient
+of the group algebra <i>kG</i> by the annihilator in <i>kG</i> of the 
+module <i>M</i>. The simple modules for <i>A</i> are precisely the 
+simple composition factors of <i>M</i>. We compute the Cartan matrix
+of <i>A</i> and the structure of the projective modules for <i>A</i>.
+Note that these projective modules are not, in general, projective over
+the group algebra <i>kG</i>. In the actual computation, the structure
+of these modules is made at the level of the condensed algebra <i>eAe</i>
+where <i>e</i> is a sum of primitive idempotents in <i>A</i>, one for 
+each simple <i>A</i>-module. The algebra <i>eAe</i> is Morita equivalent
+to the algebra <i>A</i>. </P>
+
+<H3> The basic algebra, <i>S</i>, of the Schur algebra <i>S(n,r)</i>.</H3>
+First we take the <i>kG</i>-endomorphism ring of the module <i>M</i>.
+That is, it is the algebra of all matrices that commute with the algebra
+<i>A</i>. What we actually compute is the commuting ring of the 
+condensed algebra  <i>eAe</i>. Because  <i>eAe</i> is Morita equivalent
+to <i>A</i>, the two have isomorphic commuting rings. The 
+algebra <i>S</i> is the condensation of the commuting ring. We calculate
+the structure of <i>S</i> as well as its Cartan matrix, and the Loewy 
+and socle series for its projective modules. <i>S</i> is Morita 
+equivalent to the Schur algebra. 
+
+
+<h2> The Calculations</h2>
+
+<H4><i>n = 3</i></H4>
+<ul>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-5-2.html ">
+<i>S</i>(3,5) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-5-3.html ">
+<i>S</i>(3,5) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-5-5.html ">
+<i>S</i>(3,5) in characteristic 5</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-6-2.html ">
+<i>S</i>(3,6) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-6-3.html ">
+<i>S</i>(3,6) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-6-5.html ">
+<i>S</i>(3,6) in characteristic 5</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-7-2.html ">
+<i>S</i>(3,7) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-7-3.html ">
+<i>S</i>(3,7) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-7-5.html ">
+<i>S</i>(3,7) in characteristic 5</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-7-7.html ">
+<i>S</i>(3,7) in characteristic 7</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-8-2.html ">
+<i>S</i>(3,8) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-8-3.html ">
+<i>S</i>(3,8) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-8-5.html ">
+<i>S</i>(3,8) in characteristic 5</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-8-7.html ">
+<i>S</i>(3,8) in characteristic 7</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-9-2.html ">
+<i>S</i>(3,9) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-9-3.html ">
+<i>S</i>(3,9) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-9-5.html ">
+<i>S</i>(3,9) in characteristic 5</A> <br>
+</br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-10-2.html ">
+<i>S</i>(3,10) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur3-10-3.html ">
+<i>S</i>(3,10) in characteristic 3</A> <br>
+</ul>
+<H4><i>n = 4</i></H4>
+<ul>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-5-2.html ">
+<i>S</i>(4,5) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-5-3.html ">
+<i>S</i>(4,5) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-5-5.html ">
+<i>S</i>(4,5) in characteristic 5</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-6-2.html ">
+<i>S</i>(4,6) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-6-3.html ">
+<i>S</i>(4,6) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-6-5.html ">
+<i>S</i>(4,6) in characteristic 5</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-7-2.html ">
+<i>S</i>(4,7) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-7-3.html ">
+<i>S</i>(4,7) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-7-5.html ">
+<i>S</i>(4,7) in characteristic 5</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-7-7.html ">
+<i>S</i>(4,7) in characteristic 7</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-8-2.html">
+<i>S</i>(4,8) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-8-3.html">
+<i>S</i>(4,8) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur4-8-5.html">
+<i>S</i>(4,8) in characteristic 5</A> <br>
+</ul>
+
+<H4><i>n = 5</i></H4>
+<ul>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-5-2.html ">
+<i>S</i>(5,5) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-5-3.html ">
+<i>S</i>(5,5) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-5-5.html ">
+<i>S</i>(5,5) in characteristic 5</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-6-2.html ">
+<i>S</i>(5,6) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-6-3.html ">
+<i>S</i>(5,6) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-6-5.html ">
+<i>S</i>(5,6) in characteristic 5</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-7-2.html ">
+<i>S</i>(5,7) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-7-3.html ">
+<i>S</i>(5,7) in characteristic 3</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur5-8-2.html ">
+<i>S</i>(5,8) in characteristic 2</A> <br>
+</ul>
+
+<H4><i>n = 6</i></H4>
+<ul>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur6-6-2.html ">
+<i>S</i>(6,6) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur6-6-3.html ">
+<i>S</i>(6,6) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur6-6-5.html ">
+<i>S</i>(6,6) in characteristic 5</A> <br>
+<br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur6-7-2.html ">
+<i>S</i>(6,7) in characteristic 2</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur6-7-3.html ">
+<i>S</i>(6,7) in characteristic 3</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur6-7-5.html ">
+<i>S</i>(6,7) in characteristic 5</A> <br>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur6-7-7.html ">
+<i>S</i>(6,7) in characteristic 7</A> <br>
+
+</ul>
+<H4><i>n = 7</i></H4>
+<ul>
+<A HREF="http://alpha.math.uga.edu/~jfc/schur/schur7-7-2.html ">
+<i>S</i>(7,7) in characteristic 2</A> <br>
+</ul>
+
+<H4>Equipment</H4>
+<p>The smaller calculations were preformed on my laptop, a Dell 
+Latitude 300, with approximately 1 GB. of RAM. 
+Most of the rest of the calculation that are posted were performed on a SUN 
+Blade 1000, (the sloth). The machine has 8 GB. of RAM and approximately 
+30 G. of hard drive. More recently, some larger calculations have been
+posted that were performed on a SUN with 32 G. of RAM.
+I want to thank the National Science Foundation and 
+University of Georgia Research Foundation for providing me with both 
+the equipment and the time to work on this project.</p> 
+
+<H4>Programs</H4>
+<p>All of the programs are written in MAGMA code and run on the MAGMA 
+platform. The programs for computing the generators and relations for 
+algebras and for finding condensed algebras were developed and written
+by myself and Graham Matthews. </p>
+
+Thanks are due to the people of the MAGMA project 
+in Sydney, particularly John Cannon and Allan Steel, 
+for numerous instances of help with the tools to make the 
+programs work and for their enthusiastic support. </p>
+
+The specific programs for computing the Schur algebras were developed
+at a meeting on "Cohomology and representation thoery for finite groups
+of Lie type", which took place at the American Institute of Mathematics
+in June of 2007. I want to thank AIM for support and thank several of the 
+participants, especially Dave Hemmer, Brian Parshall, Leonard Scott
+and Lisa Townsley for encouragement and helpful discussions.  
+
+<h2>References</h2>
+<p> J. F. Carlson, and G. Matthews, <i>Generators and relations for 
+matrix algebras</i>, J. Algebra 300(2006), 134-159. 
+ 
+<h2>Acknowledgement</h2>
+Thanks are due to NSF for support of the project in both time and 
+equipment.
+
+<h2> Manditory Disclaimer </h2>
+<P> The content and opinions expressed on this Web page do
+not necessarily reflect the views of nor are they endorsed
+by the University of Georgia or the University System of
+Georgia. </P>
+
+</HTML></BODY> 
+
