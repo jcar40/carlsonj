@@ -1,0 +1,42 @@
+// This is a data file readable by magma.
+
+G := FreeSemigroup(6);
+field<a> := GF(4);
+master_polynomial_ring<z,y,x,w,v,u,t,s,r,q,p,n,
+m,k,j,i,h,g,f,e,d,c,b> := PolynomialRing(field, 23);
+
+AssignNames(~master_polynomial_ring, ["z","y","x",
+"w","v","u","t","s","r","q","p","n",
+"m","k","j","i","h","g","f","e","d","c","b"]);
+
+group_order := 4;
+hall_number := 2;
+isomorphism_type := "Cyclic(4)";
+
+
+
+/* ABELIAN GROUP DATA.
+
+Three items are stored: the variables, their degrees and the
+generators of the ideal of relations of the cohomology ring. */
+
+variables := [ 
+    z,
+    y
+ ];
+degrees := [  1, 2  ];
+relations := [ 
+    z^2
+ ];
+
+
+super_groups := 
+[ 4, 5, 5, 5 ]
+;
+
+
+
+super_quots := 
+[]
+;
+

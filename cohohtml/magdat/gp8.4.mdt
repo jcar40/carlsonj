@@ -1,0 +1,231 @@
+
+
+
+
+
+/**************************************************************/
+/**************************************************************/
+// This is a data file readable by magma.
+
+group_order := 8;
+hall_number := 4;
+G := FreeGroup(Ilog2(group_order));
+field<a> := GF(4);
+one_var_ring := PolynomialRing(Integers());
+hilbert_ring<T> := FieldOfFractions(one_var_ring);
+master_polynomial_ring<z,y,x,w,v,u,t,s,r,q,p,n,
+m,k,j,i,h,g,f,e,d,c,b> := PolynomialRing(field, 23);
+string_variables := ["z","y","x",
+"w","v","u","t","s","r","q","p","n",
+"m","k","j","i","h","g","f","e","d","c","b"];
+AssignNames(~master_polynomial_ring, string_variables);
+
+isomorphism_type := "Dihedral(8)";
+magma_number := 3;
+pcgroup_relations := [
+    G.2^G.1 = G.2 * G.3
+ ];
+G := quo< G | pcgroup_relations >;
+
+centre_type :=  [ 2 ]
+;
+orders_lower_central_series :=  [ 8, 2, 1 ]
+;
+orders_upper_central_series :=  [ 1, 2, 8 ]
+;
+order_of_frattini_subgroup := 2;
+exponent := 4;
+orders_of_max_elem_abelian_subs :=  [ 4, 4 ]
+;
+orders_of_centralizers_of_max_elem_abelian_subs :=  [
+4, 4 ]
+;
+orders_of_normalizers_of_max_elem_abelian_subs := [  
+8, 8  ];
+variables := [ 
+    z,
+    y,
+    x
+ ];
+degrees := [  1, 1, 2  ];
+relations := [ 
+    z*y
+ ];
+hilbert_series := 
+1/(T^2 - 2*T + 1);
+krull_dimension := 2;
+depth := krull_dimension;
+longest_regular_sequence := [ 
+    x,
+    z^2 + y^2
+ ];
+homogeneous_set_of_parameters := longest_regular_sequence;
+param_degrees := [ ];
+hypercohomology_spectral_sequence := [* *];
+
+
+
+comment_MAXIMAL_SUBGROUPS_DATA :=
+"This is a list, in which each entry represents
+a maximal subgroup. Each item on the list has:
+1: maximal subgroup number,
+2: generators of the maximal subgroup (in the larger group),
+3: Hall-Senior number of its isomorphism class,
+4: list of images (in the cohomology ring) under restriction,
+5: list of generators of the ideal of the kernel of restriction,
+6: list of generators of its cohomology ring,
+7: list of images under the transfer map.";
+
+maximal_subgroups_data := [
+< 1,  [ G.3, G.2 * G.3 ]
+,
+1,
+[ 
+    0,
+    y,
+    z^2 + z*y
+ ],
+[ 
+    z
+ ],
+[ 
+    z
+ ],
+[ 
+    y
+ ] >,
+< 2,  [ G.1 * G.3, G.3 ]
+,
+1,
+[ 
+    y,
+    0,
+    z^2 + z*y
+ ],
+[ 
+    y
+ ],
+[ 
+    z
+ ],
+[ 
+    z
+ ] >,
+< 3,  [ G.1 * G.2, G.3 ]
+,
+2,
+[ 
+    z,
+    z,
+    y
+ ],
+[ 
+    z + y
+ ],
+[ ], [ ] > ];
+
+
+
+comment_MAXIMAL_ELEMENTARY_ABELIAN_SUBGROUPS_DATA :=
+"Two lists are computed.\n
+The first list contains the maximal elementary abelian subgroups
+which are also maximal subgroups; in this case, their index numbers are
+identical (that is, the n-th maximal elementary abelian is the n-th maximal).\n
+The second list contains items describing
+the maximal elementary abelian subgroups:
+1: maximal elementary abelian subgroup number,
+2: generators of the subgroup (in the larger group),
+3: order,
+4: list of images (in the cohomology ring) under restriction,
+5: list of generators of the ideal of the kernel of restriction,
+6: list of generators of its cohomology ring,
+7: list of images under the transfer map.
+
+We also compute information about the nilradical. This is the list:
+1: string (description of the nilradical),
+2: generators of the nilradical,
+3: nilpotency degree,
+4: boolean (is the nilradical zero?).";
+
+maximal_elementary_abelian_and_maximal := [ 1 , 2  ];
+maximal_elementary_abelian_subgroups_data := [
+ ];
+
+nilradical := [*
+"The nilradical of the cohomology ring is zero.",
+[ ], 1, true *];
+
+
+
+comment_ESSENTIAL_COHOMOLOGY_DATA := 
+"This is a tuple < > containing the following entries:
+1: generators of the image of transfers from all maximal subgrops,
+2: boolean (is the essential cohomology zero?),
+3: generators of the essential cohomology,
+4: nilpotency degree,
+5: dimension of the annihilator,
+6: generators of the subring,
+7: generators of the free module";
+
+essential_cohomology_data := < [ 
+    z,
+    y
+ ],
+true, [ ], 1, -1, [ ], [ ] >;
+
+
+
+comment_INFLATIONS_FROM_MAXIMAL_QUOTIENT_GROUPS_DATA :=
+"This is one list. Each entry has the following information:
+1: maximal quotient group number,
+2: generator of the kernel of the quotient map,
+3: Hall-Senior number of its isomorphism class,
+4: list of images (in the cohomology ring) under inflation,
+5: generators of the kernel of the inflation.";
+
+inflations_from_maximal_quotient_groups_data := [
+< 1,  G.3 , 1, [ 
+    y,
+    z
+ ],
+[ 
+    z*y
+ ] > ];
+
+
+
+comment_ACTION_OF_AUTOMORPHISMS_DATA := 
+"We compute the order of the group of automorphisms,
+the number of generators of the automorphism group,
+and a list containing information about the generators
+of the group of automorphisms.
+Each entry of the list has the following information:
+1: automorphism number,
+2: order in the outer automorphism group,
+3: list of images of the group generators under this automorphism,
+4: list of images of the generators on cohomology under the
+     map induced by the automorphism.";
+
+order_of_outer_automorphism_group := 2;
+number_of_generators_of_outer_automorphism_group := 1 
+;
+automorphisms_data := [
+< 1, order_of_outer_automorphism_group,
+[  G.2, G.1, G.3  ],
+[ 
+    y,
+    z,
+    x
+ ] > ];
+
+
+super_groups := 
+[ 6, 6, 6, 6, 8, 8, 8, 12, 12, 13 ]
+;
+
+
+
+super_quots := 
+[ 6, 6, 9, 9, 10, 12, 13, 14 ]
+;
+

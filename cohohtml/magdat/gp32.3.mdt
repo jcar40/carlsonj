@@ -1,0 +1,57 @@
+
+
+
+
+
+/**************************************************************/
+/**************************************************************/
+// This is a data file readable by magma.
+
+group_order := 32;
+hall_number := 3;
+G := FreeGroup(Ilog2(group_order));
+field<a> := GF(4);
+one_var_ring := PolynomialRing(Integers());
+hilbert_ring<T> := FieldOfFractions(one_var_ring);
+master_polynomial_ring<z,y,x,w,v,u,t,s,r,q,p,n,
+m,k,j,i,h,g,f,e,d,c,b> := PolynomialRing(field, 23);
+string_variables := ["z","y","x",
+"w","v","u","t","s","r","q","p","n",
+"m","k","j","i","h","g","f","e","d","c","b"];
+AssignNames(~master_polynomial_ring, string_variables);
+
+isomorphism_type := "Abelian(4,4,2)";
+magma_number := 21;
+
+
+
+comment_ABELIAN_GROUP_DATA := 
+"Three items are stored: the variables, their degrees and the
+generators of the ideal of relations of the cohomology ring.";
+
+variables := [ 
+    z,
+    y,
+    x,
+    w,
+    v
+ ];
+degrees := [  1, 1, 1, 2, 2  ];
+relations := [ 
+    z^2,
+    y^2
+ ];
+
+
+super_groups := 
+[ 18, 19, 19, 19, 20, 20, 23, 25, 27, 27, 27, 28, 28, 29, 29, 29, 30, 30, 30, 31, 
+33, 37, 51, 60, 69, 70, 74, 75, 76, 78, 79, 80, 82, 85, 87, 88, 90, 91, 92, 93, 
+95, 98 ]
+;
+
+
+
+super_quots := 
+[ 22, 23, 28, 29, 30, 31, 32 ]
+;
+
